@@ -1,0 +1,9 @@
+rootProject.name = 'f18'
+
+// COMMON
+include "common:shared"
+include "common:mapper"
+
+// SERVICES
+include "service:file-storage"
+

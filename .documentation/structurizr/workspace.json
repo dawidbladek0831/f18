@@ -1,0 +1,313 @@
+{
+  "configuration" : { },
+  "description" : "description",
+  "documentation" : {
+    "decisions" : [ {
+      "content" : "# 1. Architecture Decision Record\n\nData: 2024-11-16\n\n## Status\n\nAccepted\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\ntemplate from article:\nhttps://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions\n\n## Consequences\n\nFrom now we will use Nygard's template, link above.",
+      "date" : "2024-12-04T12:21:45Z",
+      "format" : "Markdown",
+      "id" : "1",
+      "status" : "Accepted",
+      "title" : "Architecture Decision Record"
+    } ],
+    "sections" : [ {
+      "content" : "# \n\n## Introduction and Goals\nThis document provides an architectural overview of the File Storage Service (FSS),\na solution designed to store and manage files, such as images, videos, and other media, for external applications.\n\n### Requirements Overview\nFeatures:\n- Upload, download, and delete files via RESTful APIs.\n- Metadata management for stored files.\n- Access control mechanisms to manage file visibility and permissions.\n- Versioning for stored files.\n- Storage files on local file system or in AWS S3.\n\n## Architecture Constraints\n\n| Constraint             | Description                                                                           |\n|------------------------|---------------------------------------------------------------------------------------|\n| API Protocols          | The service must use REST APIs                                                        | \n| File Storage Mechanism | Files must be stored using an object storage solution on local files system or AWS S3 |\n\n\n## Context and Scope\n![](embed:systemContext_fileStorageSystem)\n\n## Solution Strategy\n\n| Goal     | Description                                          |\n|----------|------------------------------------------------------|\n| Security | OAuth2 for secure user/externalSystem authentication |\n\n## Building Block View\nDiagram from 3.1. section displaying all systems:\n![](embed:systemContext_fileStorageSystem)\n\n| Block               | Description                                       |\n|---------------------|---------------------------------------------------|\n| File Storage System | Main system responsible for storage files.        |\n| Person              | Person can use REST Client to manually sent file. |\n| External System     | Other system which store files.                   |\n\n\n### Level 1 - File Storage System\nThe system architecture consists of two main components File Storage Service and supporting infrastructure.\n![](embed:container_fileStorageSystem)\n\n| System or components      | Description                                                                                                  |\n|---------------------------|--------------------------------------------------------------------------------------------------------------|\n| File Storage Service      | The service is implemented in Spring Framework                                                               |\n| supporting infrastructure | The system uses MongoDB as the primary database. Additionally Apache Kafka is utilized as a messaging system |\n\nTo model the domain, the DDD (Domain-Driven Design) approach was applied, complemented by Event Storming. \nMore information: [Event Storming](#game-system-modeling)\n\n#### Level 2 - Backend\n// TODO\n\n## Runtime View\n// TODO\n\n## Deployment View\nDeployment diagram - dev:\n![](embed:development_dev)\n\n## Cross-cutting Concepts\n\n### Clean Architecture\nArchitecture is described in book: *Get Your Hands Dirty on Clean Architecture, by Tom Hombergs*.\n\n## Architecture Decisions\n[Link](/workspace/decisions)\n\n## Quality Requirements\n\n## Risks and Technical Debts\n\n## Glossary\n\n| Term        | Definition                |\n|-------------|---------------------------|\n",
+      "filename" : "1_doc.md",
+      "format" : "Markdown",
+      "order" : 1,
+      "title" : ""
+    }, {
+      "content" : "## attachments",
+      "filename" : "2_header.md",
+      "format" : "Markdown",
+      "order" : 2,
+      "title" : ""
+    }, {
+      "content" : "### Game System modeling\n#### introduction\nTo model the domain, the DDD (Domain-Driven Design) approach was applied, complemented by Event Storming. Event Storming is an excellent tool for supporting DDD processes, particularly during the exploratory and design phases. It facilitates the identification of domain events, the modeling of business processes, and the development of a shared language among all stakeholders.\n\nEvent Storming is created using draw.io, and the corresponding file is located in the designated folder(`./f17.drawio`).\nBelow, an exported image of the documentation is provided for reference:\n![](images/f17-event_storming.drawio.svg)\n\n#### Domain Description\nGame is an online strategy game where players build and manage their villages while competing for dominance with other tribes. Each tribe can consist of multiple players, with one designated as the tribe leader. Players develop their villages by gathering resources, constructing buildings, and training armies.\n\nResources include wood, stone, and iron, and are gathered through resource buildings. Resources are also acquired by raiding other villages or through trade. A village can store only a limited amount of resources, based on its storage capacity.\n\nRanking system, where individual players and tribes are ranked by their accumulated battle points. Battle points are earned by winning battles against other players. Battles can either be offensive (initiated by a player) or defensive (when the player is attacked by another player).\n\nEach player has a home village. Villages can be expanded by constructing new buildings or upgrading existing ones, which requires resources and time.\n\nTribes can form alliances with other tribes, creating larger coalitions. Wars are declared officially within the game, and all battles between warring tribes during the war period contribute to the war score.\n\nPlayers can train different types of units and use them to attack.\n\nVictory can be achieved by becoming the top-ranked tribe by battle points when the game world ends.\n\n#### Strategic Design (ES: Pig Picture & Process Modeling)\nDuring modeling, the following **definitions** were established as universal concepts, applicable across all bounded contexts within the domain:\n- player - represent user in game;\n- money - premium currency;\n- gold coins - player can mind them in Academy, required to conquer villages;\n- inventory - player container for items;\n- village resources - resources in village;\n- refresh resources - adds resources to village depending on the level of resource buildings;\n- village builder - management of building constructions in village;\n- village infrastructure - building in village;\n- village army - village units\n- village recruiter - management of recruit units in village;\n- available unit - unit that belongs to the village and can be sent out\n- blocked unit - unit that belongs to the village, but is unavailable, e.g., because of an expedition\n- village loyalty - if loyalty falls below 0 village will be conquered;\n- effects - active effects in village, effects can, for example, raise productions;\n- village position - village position on map;\n- tribe - group of players;\n\n#### Legend:\n![](images/legend.png)\n\n#### ES. Pig Picture, examples:\n- at first player related processes:\n  ![](images/bp-player.png)\n- resource related processes:\n  ![](images/bp-resources.png)\n- building related processes:\n  ![](images/bp-building.png)\n\n#### ES. Process Modeling, examples:\n- player related processes:\n  ![](images/pm-player.png)\n- resource related processes:\n  ![](images/pm-resources.png)\n- building related processes:\n  ![](images/pm-buildings.png)\n\n\n#### **Tactical Design (ES: Design Modeling)**\nAfter documenting and describing the processes, the following **bounded contexts** were identified:\n\n##### 1. player context\nImplemented in Layered architectural patter as Active Record.\n\nObjects:\n- Player Entity\n\n![](images/pm-1.png)\n\n##### 2. player money context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Player Money\n\n![](images/pm-2.png)\n\n##### 3. player gold coin  context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Player Gold Coin\n\n![](images/pm-3.png)\n\n##### 4. inventory context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Inventory\n\n![](images/pm-4.png)\n\n##### 5. village context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Village\n\n![](images/pm-5.png)\n\n##### 6. village resource context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Village Resource\n\n![](images/pm-6.png)\n\n##### 7. village builder context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nObjects:\n- Village Builder Aggregate\n- Village Infrastructure Aggregate\n- Building Entity\n\n![](images/pm-7.png)\n\n##### 8. village army context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nObjects:\n- Village Recruiter Aggregate\n- Village Army Aggregate\n- Unit Entity\n\n![](images/pm-8.png)\n\n##### 9. village loyalty context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Village Loyalty\n\n![](images/pm-9.png)\n\n##### 10. village effects context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Village effects\n\n![](images/pm-10.png)\n\n##### 11. map context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nObjects:\n- Village Position Aggregate\n- Map Entity\n\n![](images/pm-11.png)\n\n##### 12. army walk context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Army Walk\n\n![](images/pm-12.png)\n\n##### 13. tribe context\nImplemented in Port & Adapters architectural patter as Domain Model.\n\nAggregates:\n- Tribe\n\n![](images/pm-13.png)\n",
+      "filename" : "3_event-storming.md",
+      "format" : "Markdown",
+      "order" : 3,
+      "title" : ""
+    } ]
+  },
+  "id" : 1,
+  "lastModifiedDate" : "2024-12-04T12:21:45Z",
+  "model" : {
+    "deploymentNodes" : [ {
+      "children" : [ {
+        "containerInstances" : [ {
+          "containerId" : "5",
+          "deploymentGroups" : [ "Default" ],
+          "environment" : "Development",
+          "id" : "16",
+          "instanceId" : 1,
+          "properties" : {
+            "structurizr.dsl.identifier" : "dev.0cfe6077-7713-4504-88d2-61a861bef236.76999117-93f4-427d-aa66-dcdecfcbdaf2.46d4a736-d034-429c-8ef1-141be7835530"
+          },
+          "tags" : "Container Instance"
+        }, {
+          "containerId" : "6",
+          "deploymentGroups" : [ "Default" ],
+          "environment" : "Development",
+          "id" : "18",
+          "instanceId" : 1,
+          "properties" : {
+            "structurizr.dsl.identifier" : "dev.0cfe6077-7713-4504-88d2-61a861bef236.76999117-93f4-427d-aa66-dcdecfcbdaf2.1648ec16-e6d9-4ff1-b9a3-b873e53d7834"
+          },
+          "tags" : "Container Instance"
+        } ],
+        "environment" : "Development",
+        "id" : "15",
+        "instances" : "1",
+        "name" : "Docker",
+        "properties" : {
+          "structurizr.dsl.identifier" : "dev.0cfe6077-7713-4504-88d2-61a861bef236.76999117-93f4-427d-aa66-dcdecfcbdaf2"
+        },
+        "tags" : "Element,Deployment Node"
+      } ],
+      "containerInstances" : [ {
+        "containerId" : "4",
+        "deploymentGroups" : [ "Default" ],
+        "environment" : "Development",
+        "id" : "14",
+        "instanceId" : 1,
+        "properties" : {
+          "structurizr.dsl.identifier" : "dev.0cfe6077-7713-4504-88d2-61a861bef236.89d297eb-083c-4ad8-a6e1-f49bf2602e39"
+        },
+        "relationships" : [ {
+          "description" : "Uses",
+          "destinationId" : "16",
+          "id" : "17",
+          "linkedRelationshipId" : "7",
+          "sourceId" : "14"
+        }, {
+          "description" : "Uses",
+          "destinationId" : "18",
+          "id" : "19",
+          "linkedRelationshipId" : "8",
+          "sourceId" : "14"
+        } ],
+        "tags" : "Container Instance"
+      } ],
+      "environment" : "Development",
+      "id" : "13",
+      "instances" : "1",
+      "name" : "Developer Laptop",
+      "properties" : {
+        "structurizr.dsl.identifier" : "dev.0cfe6077-7713-4504-88d2-61a861bef236"
+      },
+      "tags" : "Element,Deployment Node"
+    } ],
+    "people" : [ {
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "person"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "4",
+        "id" : "9",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "3",
+        "id" : "10",
+        "linkedRelationshipId" : "9",
+        "sourceId" : "1"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "External System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "externalsystem"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "4",
+        "id" : "11",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "3",
+        "id" : "12",
+        "linkedRelationshipId" : "11",
+        "sourceId" : "2"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "description",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "File storage service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "filestoragesystem.filestorageservice"
+        },
+        "relationships" : [ {
+          "description" : "Uses",
+          "destinationId" : "5",
+          "id" : "7",
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Uses",
+          "destinationId" : "6",
+          "id" : "8",
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Spring"
+      }, {
+        "documentation" : { },
+        "id" : "5",
+        "name" : "MongoDB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "filestoragesystem.database"
+        },
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Kafka",
+        "properties" : {
+          "structurizr.dsl.identifier" : "filestoragesystem.kafka"
+        },
+        "tags" : "Element,Container"
+      } ],
+      "documentation" : { },
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "File storage system",
+      "properties" : {
+        "structurizr.dsl.identifier" : "filestoragesystem"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "File storage system",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG5hbWUgIkZpbGUgc3RvcmFnZSBzeXN0ZW0iCiAgICBkZXNjcmlwdGlvbiAiZGVzY3JpcHRpb24iCgogICAgIWRvY3MgZG9jcwogICAgIWFkcnMgZG9jcy9hZHJzCiAgICAhaWRlbnRpZmllcnMgaGllcmFyY2hpY2FsCgogICAgbW9kZWwgewogICAgICAgIHBlcnNvbiA9IHBlcnNvbiAiUGVyc29uIgogICAgICAgIGV4dGVybmFsU3lzdGVtID0gIHBlcnNvbiAiRXh0ZXJuYWwgU3lzdGVtIgogICAgICAgIGZpbGVTdG9yYWdlU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkZpbGUgc3RvcmFnZSBzeXN0ZW0iIHsKICAgICAgICAgICAgZmlsZVN0b3JhZ2VTZXJ2aWNlID0gY29udGFpbmVyICJGaWxlIHN0b3JhZ2Ugc2VydmljZSIgewogICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gImRlc2NyaXB0aW9uIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiU3ByaW5nIgogICAgICAgICAgICB9CiAgICAgICAgICAgIGRhdGFiYXNlID0gY29udGFpbmVyICJNb25nb0RCIgogICAgICAgICAgICBrYWZrYSA9IGNvbnRhaW5lciAiS2Fma2EiCgogICAgICAgICAgICBmaWxlU3RvcmFnZVNlcnZpY2UgLT4gZGF0YWJhc2UgIlVzZXMiCiAgICAgICAgICAgIGZpbGVTdG9yYWdlU2VydmljZSAtPiBrYWZrYSAiVXNlcyIKICAgICAgICB9CgogICAgICAgIHBlcnNvbiAtPiBmaWxlU3RvcmFnZVN5c3RlbS5maWxlU3RvcmFnZVNlcnZpY2UgIlVzZXMiCiAgICAgICAgZXh0ZXJuYWxTeXN0ZW0gLT4gZmlsZVN0b3JhZ2VTeXN0ZW0uZmlsZVN0b3JhZ2VTZXJ2aWNlICJVc2VzIgoKICAgICAgICBkZXYgPSBkZXBsb3ltZW50RW52aXJvbm1lbnQgIkRldmVsb3BtZW50IiB7CiAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJEZXZlbG9wZXIgTGFwdG9wIiB7CiAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBmaWxlU3RvcmFnZVN5c3RlbS5maWxlU3RvcmFnZVNlcnZpY2UKICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJEb2NrZXIiIHsKICAgICAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBmaWxlU3RvcmFnZVN5c3RlbS5kYXRhYmFzZQogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGZpbGVTdG9yYWdlU3lzdGVtLmthZmthCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgdmlld3MgewogICAgICAgIHRoZW1lIGRlZmF1bHQKICAgICAgICBzeXN0ZW1Db250ZXh0IGZpbGVTdG9yYWdlU3lzdGVtICJzeXN0ZW1Db250ZXh0X2ZpbGVTdG9yYWdlU3lzdGVtIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICBjb250YWluZXIgZmlsZVN0b3JhZ2VTeXN0ZW0gImNvbnRhaW5lcl9maWxlU3RvcmFnZVN5c3RlbSIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgZGVwbG95bWVudCAqIGRldiAiZGV2ZWxvcG1lbnRfZGV2InsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgfQp9"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "development_dev",
+      "styles" : { },
+      "terminology" : { },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ]
+    },
+    "containerViews" : [ {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 65,
+        "y" : 470
+      }, {
+        "id" : "2",
+        "x" : 55,
+        "y" : 25
+      }, {
+        "id" : "4",
+        "x" : 1010,
+        "y" : 70
+      }, {
+        "id" : "5",
+        "x" : 1725,
+        "y" : 70
+      }, {
+        "id" : "6",
+        "x" : 1715,
+        "y" : 545
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "container_fileStorageSystem",
+      "order" : 2,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "11"
+      }, {
+        "id" : "7"
+      }, {
+        "id" : "8"
+      }, {
+        "id" : "9"
+      } ],
+      "softwareSystemId" : "3"
+    } ],
+    "deploymentViews" : [ {
+      "dimensions" : {
+        "height" : 2849,
+        "width" : 4660
+      },
+      "elements" : [ {
+        "id" : "13",
+        "x" : 175,
+        "y" : 175
+      }, {
+        "id" : "14",
+        "x" : 165,
+        "y" : 145
+      }, {
+        "id" : "15",
+        "x" : 175,
+        "y" : 175
+      }, {
+        "id" : "16",
+        "x" : 1370,
+        "y" : 150
+      }, {
+        "id" : "18",
+        "x" : 1385,
+        "y" : 525
+      } ],
+      "environment" : "Development",
+      "key" : "development_dev",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "17"
+      }, {
+        "id" : "19"
+      } ]
+    } ],
+    "systemContextViews" : [ {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 70,
+        "y" : 475
+      }, {
+        "id" : "2",
+        "x" : 70,
+        "y" : 35
+      }, {
+        "id" : "3",
+        "x" : 1035,
+        "y" : 85
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "systemContext_fileStorageSystem",
+      "order" : 1,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "12"
+      } ],
+      "softwareSystemId" : "3"
+    } ]
+  }
+}

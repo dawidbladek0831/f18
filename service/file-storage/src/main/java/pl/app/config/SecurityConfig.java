@@ -2,7 +2,6 @@ package pl.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
@@ -34,6 +33,7 @@ public class SecurityConfig {
                         .jwtAuthenticationConverter(new ReactiveJwtAuthenticationConverterAdapter(JwtAuthenticationConverter))));
         return http.build();
     }
+
     @Bean
     JwtAuthenticationConverter JwtAuthenticationConverter() {
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();

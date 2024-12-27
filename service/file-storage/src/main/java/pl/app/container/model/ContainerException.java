@@ -19,6 +19,7 @@ public interface ContainerException {
             return new NotFoundContainerException("not found container: " + name);
         }
     }
+
     class DuplicatedContainerNameException extends ValidationException {
         public DuplicatedContainerNameException() {
             super("there are container for given name");

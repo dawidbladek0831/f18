@@ -114,6 +114,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }
+
     @Test
     void update_shouldUpdate_whenContainerOfTypePrivateAndUserHasWritePermission() {
         var containerName = ObjectId.get().toString();
@@ -137,6 +138,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }
+
     @Test
     void update_shouldThrow_whenContainerOfTypePrivateAndUserHasWritePermissionButUserIsNotOwner() {
         var containerName = ObjectId.get().toString();
@@ -161,6 +163,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is4xxClientError();
     }
+
     @Test
     void update_shouldUpdate_whenContainerOfTypePrivateAndUserHasManagePermissionAndUserIsNotOwner() {
         var containerName = ObjectId.get().toString();
@@ -185,6 +188,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }
+
     @Test
     void remove_shouldRemove_whenContainerOfTypeProtectedAndUserHasWritePermission() {
         var containerName = ObjectId.get().toString();
@@ -207,6 +211,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }
+
     @Test
     void remove_shouldRemove_whenContainerOfTypePrivateAndUserHasWritePermissionAndUserIsOwner() {
         var containerName = ObjectId.get().toString();
@@ -229,6 +234,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }
+
     @Test
     void remove_shouldThrow_whenContainerOfTypePrivateAndUserHasWritePermissionButUserIsNotOwner() {
         var containerName = ObjectId.get().toString();
@@ -252,6 +258,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
                 .exchange()
                 .expectStatus().is4xxClientError();
     }
+
     @Test
     void remove_shouldRemoveRevision_whenContainerOfTypePrivateAndUserHasWritePermissionAndUserIsOwner() {
         var containerName = ObjectId.get().toString();
@@ -270,7 +277,7 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
                         .authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_WRITE.getScopeName()))))
-                .delete().uri("/api/v1/containers/{containerName}/objects/{key}?revision={revision}", containerName, objectKey,1)
+                .delete().uri("/api/v1/containers/{containerName}/objects/{key}?revision={revision}", containerName, objectKey, 1)
                 .exchange()
                 .expectStatus().is2xxSuccessful();
     }

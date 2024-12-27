@@ -20,6 +20,7 @@ public class ObjectMapper extends BaseMapper {
         addMapper(ObjectAggregateQuery.class, ObjectSimpleDto.class, this::mapToObjectDto);
         addMapper(ObjectAggregateQuery.class, ObjectFullDto.class, e -> modelMapper.map(e, ObjectFullDto.class));
     }
+
     ObjectSimpleDto mapToObjectDto(ObjectAggregate domain) {
         return ObjectSimpleDto.builder()
                 .objectId(domain.getObjectId())
@@ -30,6 +31,7 @@ public class ObjectMapper extends BaseMapper {
                 .storageId(domain.getLeadRevision().isPresent() ? domain.getLeadRevision().get().getStorageId() : "")
                 .build();
     }
+
     ObjectSimpleDto mapToObjectDto(ObjectAggregateQuery domain) {
         return ObjectSimpleDto.builder()
                 .objectId(domain.getObjectId())

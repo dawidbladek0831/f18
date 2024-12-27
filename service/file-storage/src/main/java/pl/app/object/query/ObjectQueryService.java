@@ -1,6 +1,5 @@
 package pl.app.object.query;
 
-import pl.app.object.query.dto.ObjectSimpleDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

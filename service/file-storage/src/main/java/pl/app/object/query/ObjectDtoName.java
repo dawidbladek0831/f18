@@ -10,12 +10,11 @@ public enum ObjectDtoName {
     SIMPLE("simple", ObjectSimpleDto.class),
     FULL("full", ObjectFullDto.class);
 
+    public static final ObjectDtoName DEFAULT_DTO = SIMPLE;
     @Getter
     private final String name;
     @Getter
     private final Class<?> dtoClass;
-
-    public static final ObjectDtoName DEFAULT_DTO = SIMPLE;
 
     ObjectDtoName(String name, Class<?> dtoClass) {
         this.name = name;

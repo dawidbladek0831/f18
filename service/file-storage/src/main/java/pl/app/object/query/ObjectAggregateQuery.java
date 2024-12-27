@@ -6,17 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
-import org.springframework.stereotype.Service;
-import pl.app.container.model.Container;
-import pl.app.object.application.domain.ObjectAggregate;
-import pl.app.object.application.domain.ObjectException;
 import pl.app.object.application.domain.RevisionType;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Document(collection = "object")

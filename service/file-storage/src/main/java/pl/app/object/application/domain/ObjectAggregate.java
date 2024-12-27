@@ -13,14 +13,13 @@ import java.util.stream.Collectors;
 @Getter
 @NoArgsConstructor
 public class ObjectAggregate {
+    public static final String METADATA_EXTENSION_KEY = "extension";
+    public static final String METADATA_OWNER_ID_KEY = "ownerId";
     @Id
     private ObjectId objectId;
     private String key;
     private ObjectId containerId;
-
     private Set<Revision> revisions;
-    public static final String METADATA_EXTENSION_KEY = "extension";
-    public static final String METADATA_OWNER_ID_KEY = "ownerId";
     private Map<String, Object> metadata;
 
     public ObjectAggregate(ObjectId containerId, String key, Map<String, Object> metadata) {
@@ -61,10 +60,12 @@ public class ObjectAggregate {
         revisions.remove(revision);
         return revision;
     }
+
     public Set<Revision> deleteRevisions(Set<Integer> revisionIds) {
         return revisionIds.stream().map(this::deleteRevision)
                 .collect(Collectors.toSet());
     }
+
     public Revision restoreRevision(Integer revisionId) {
         Revision revision = getRevisionByIdOrThrow(revisionId);
         final Integer newRevisionId = getNextRevisionId();

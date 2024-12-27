@@ -15,6 +15,7 @@ public interface FileEvent {
     class StorageInitialized implements Serializable {
         private ObjectId containerId;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -30,6 +31,7 @@ public interface FileEvent {
         private ObjectId containerId;
         private String storageId;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

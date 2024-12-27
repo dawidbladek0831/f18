@@ -17,6 +17,7 @@ public interface ContainerEvent {
         private String name;
         private Container.ContainerType type;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -25,6 +26,7 @@ public interface ContainerEvent {
         private String name;
         private Container.ContainerType type;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

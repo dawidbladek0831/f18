@@ -32,7 +32,6 @@ public class KafkaTopicConfigurationProperties {
     private Topic fileCopied;
 
 
-
     public List<Topic> getAllTopics() {
         return List.of(
                 containerCreated,

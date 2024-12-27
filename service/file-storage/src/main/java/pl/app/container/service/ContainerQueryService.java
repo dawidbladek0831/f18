@@ -6,5 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface ContainerQueryService {
     Flux<ContainerDto> fetchAll();
+
     Mono<ContainerDto> fetchByName(String containerName);
 }

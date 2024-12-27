@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 import pl.app.config.AuthorizationService;
-import pl.app.config.SecurityConfig;
 import pl.app.container.model.RevisionPolicyType;
 import pl.app.container.service.ContainerQueryService;
 import pl.app.object.application.domain.ObjectAggregate;
@@ -79,7 +78,7 @@ class ObjectServiceImpl implements ObjectService {
                         .flatMap(container -> {
                             RevisionPolicy revisionPolicy = getPolicy(container.getRevisionPolicyType());
                             return objectDomainRepository.fetchByContainerIdAndObjectKey(container.getContainerId(), command.getKey())
-                                    .flatMap(domain -> AuthorizationService.verifySubjectHasAuthorityToEditObjectInContainer(container,  (String) domain.getMetadata().get(METADATA_OWNER_ID_KEY)).thenReturn(domain))
+                                    .flatMap(domain -> AuthorizationService.verifySubjectHasAuthorityToEditObjectInContainer(container, (String) domain.getMetadata().get(METADATA_OWNER_ID_KEY)).thenReturn(domain))
                                     .flatMap(domain -> {
                                         domain.updateMetaData(command.getMetadata());
                                         return revisionPolicy.updateObject(container, domain, command);

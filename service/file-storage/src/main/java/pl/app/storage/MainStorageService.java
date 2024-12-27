@@ -1,6 +1,5 @@
 package pl.app.storage;
 
-import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +14,9 @@ import java.util.function.Function;
 @Component
 class MainStorageService implements StorageService {
     private static final Logger logger = LoggerFactory.getLogger(MainStorageService.class);
-    private  EventPublisher eventPublisher;
+    private EventPublisher eventPublisher;
 
-    private  StorageService activeService;
+    private StorageService activeService;
 
 
     public MainStorageService(EventPublisher eventPublisher,

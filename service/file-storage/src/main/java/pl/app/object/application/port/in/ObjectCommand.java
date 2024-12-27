@@ -45,6 +45,7 @@ public interface ObjectCommand {
         private String containerName;
         private Set<Integer> revisionIds;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

@@ -19,6 +19,7 @@ public interface ObjectException {
             return new NotFoundObjectException("not found object: " + key);
         }
     }
+
     class NotFoundObjectRevisionException extends NotFoundException {
         public NotFoundObjectRevisionException() {
             super("not found object revision");
@@ -32,6 +33,7 @@ public interface ObjectException {
             return new NotFoundObjectRevisionException("not found object revision: " + revisionId);
         }
     }
+
     class ObjectAlreadyDeletedException extends ValidationException {
         public ObjectAlreadyDeletedException() {
             super("the object has already been marked as deleted");

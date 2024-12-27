@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import pl.app.object.application.domain.ObjectAggregate;
 import pl.app.object.application.domain.RevisionType;
 
 import java.io.Serializable;

@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import pl.app.config.AuthorizationService;
 import pl.app.config.FSSScopes;
-import pl.app.config.SecurityConfig;
 import pl.app.container.service.ContainerQueryService;
 import pl.app.object.application.domain.ObjectException;
 import reactor.core.publisher.Flux;

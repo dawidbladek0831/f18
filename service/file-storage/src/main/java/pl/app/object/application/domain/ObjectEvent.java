@@ -29,6 +29,7 @@ public interface ObjectEvent {
     class ObjectRemoved implements Serializable {
         private ObjectId objectId;
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

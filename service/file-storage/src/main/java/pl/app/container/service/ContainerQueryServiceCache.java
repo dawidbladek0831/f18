@@ -9,10 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import pl.app.config.AuthorizationService;
 import pl.app.container.model.ContainerEvent;
 import pl.app.container.service.dto.ContainerDto;
-import pl.app.object.application.domain.ObjectEvent;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,8 +19,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-
-import static pl.app.object.application.domain.ObjectAggregate.METADATA_OWNER_ID_KEY;
 
 @Primary
 @Service

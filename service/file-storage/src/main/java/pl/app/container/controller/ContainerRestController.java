@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import pl.app.container.service.ContainerQueryService;
 import pl.app.container.service.ContainerService;
 import pl.app.container.service.dto.ContainerDto;
 import reactor.core.publisher.Mono;
@@ -18,7 +17,6 @@ class ContainerRestController {
     public static final String resourcePath = "/api/v1/" + resourceName;
 
     private final ContainerService service;
-    private final ContainerQueryService queryService;
 
     @PostMapping
     Mono<ResponseEntity<ContainerDto>> crate(@RequestBody ContainerDto dto) {
@@ -37,6 +35,7 @@ class ContainerRestController {
                         .body(e)
                 );
     }
+
     @DeleteMapping("/{name}")
     Mono<ResponseEntity<Void>> delete(@PathVariable String name) {
         return service.deleteByName(name)

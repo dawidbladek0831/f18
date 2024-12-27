@@ -13,6 +13,7 @@ public class AuthorizationService {
 
     public static Mono<Void> verifySubjectIsOwner(String subjectId) {
         return ReactiveSecurityContextHolder.getContext()
+                .switchIfEmpty(Mono.error(AuthorizationException::new))
                 .map(ctx -> ctx.getAuthentication().getPrincipal())
                 .cast(Jwt.class)
                 .flatMap(jwt -> {
@@ -26,6 +27,7 @@ public class AuthorizationService {
 
     public static Mono<Void> verifySubjectHasAuthority(String authority) {
         return ReactiveSecurityContextHolder.getContext()
+                .switchIfEmpty(Mono.error(AuthorizationException::new))
                 .flatMap(context -> context.getAuthentication().getAuthorities().stream()
                         .anyMatch(a -> a.getAuthority().equals(authority)) ? Mono.empty() : Mono.error(AuthorizationException::new));
     }
@@ -37,7 +39,7 @@ public class AuthorizationService {
         if (Container.ContainerType.PROTECTED.equals(container.getType())) {
             return verifySubjectHasAuthority(FSSScopes.OBJECT_WRITE.getScopeName());
         }
-        return verifySubjectHasAuthority(FSSScopes.OBJECT_WRITE.getScopeName())
+        return verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName())
                 .onErrorResume(e -> verifySubjectIsOwner(subjectId));
     }
 
@@ -46,7 +48,8 @@ public class AuthorizationService {
             return Mono.empty();
         }
         if (Container.ContainerType.PROTECTED.equals(container.getType())) {
-            return verifySubjectHasAuthority(FSSScopes.OBJECT_READ.getScopeName());
+            return verifySubjectHasAuthority(FSSScopes.OBJECT_READ.getScopeName())
+                    .onErrorResume(e -> verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName()));
         }
         return verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName());
     }
@@ -56,7 +59,8 @@ public class AuthorizationService {
             return Mono.empty();
         }
         if (Container.ContainerType.PROTECTED.equals(container.getType())) {
-            return verifySubjectHasAuthority(FSSScopes.OBJECT_READ.getScopeName());
+            return verifySubjectHasAuthority(FSSScopes.OBJECT_READ.getScopeName())
+                    .onErrorResume(e -> verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName()));
         }
         return verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName())
                 .onErrorResume(e -> verifySubjectIsOwner(subjectId));

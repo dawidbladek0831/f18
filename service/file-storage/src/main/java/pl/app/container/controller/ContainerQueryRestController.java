@@ -2,7 +2,6 @@ package pl.app.container.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +22,8 @@ class ContainerQueryRestController {
 
     @GetMapping("/{name}")
     Mono<ResponseEntity<ContainerDto>> fetchByName(@PathVariable String name) {
-        return ReactiveSecurityContextHolder.getContext()
-                .flatMap(xontext -> queryService.fetchByName(name)
-                .map(ResponseEntity::ok));
-//        return queryService.fetchByName(name)
-//                .map(ResponseEntity::ok);
+        return queryService.fetchByName(name)
+                .map(ResponseEntity::ok);
     }
 
     @GetMapping

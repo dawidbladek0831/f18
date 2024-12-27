@@ -26,7 +26,6 @@ class ContainerServiceImpl implements ContainerService {
     private final ReactiveMongoTemplate mongoTemplate;
     private final EventPublisher eventPublisher;
 
-    private final ContainerQueryService containerQueryService;
     private final ContainerMapper mapper;
     private final StorageService storageService;
 
@@ -46,7 +45,7 @@ class ContainerServiceImpl implements ContainerService {
         ).doOnSubscribe(subscription ->
                 logger.debug("crating container: {}", dto.getName())
         ).flatMap(Function.identity()).doOnSuccess(domain ->
-                logger.debug("created container: {}", domain.getContainerId())
+                logger.debug("created container: {}", domain.getName())
         ).doOnError(e ->
                 logger.error("exception occurred while crating container: {}, exception: {}", dto.getName(), e.toString())
         );
@@ -54,12 +53,43 @@ class ContainerServiceImpl implements ContainerService {
 
     @Override
     public Mono<ContainerDto> update(String name, ContainerDto dto) {
-        return Mono.error(() -> new RuntimeException("not implemented yet"));
+        return Mono.fromCallable(() ->
+                mongoTemplate.query(Container.class).matching(Query.query(Criteria.where("name").is(name))).one()
+                        .switchIfEmpty(Mono.error(ContainerException.NotFoundContainerException.name(name)))
+                        .flatMap(domain -> {
+                            domain.setName(dto.getName());
+                            domain.setType(dto.getType());
+                            domain.setRevisionPolicyType(dto.getRevisionPolicyType());
+                            return mongoTemplate.save(domain)
+                                    .then(eventPublisher.publish(new ContainerEvent.ContainerUpdated(domain.getContainerId(), domain.getName(), domain.getType())))
+                                    .thenReturn(domain);
+                        }).map(domain -> mapper.map(domain, ContainerDto.class))
+        ).doOnSubscribe(subscription ->
+                logger.debug("updating container: {}", dto.getName())
+        ).flatMap(Function.identity()).doOnSuccess(domain ->
+                logger.debug("updated container: {}", domain.getName())
+        ).doOnError(e ->
+                logger.error("exception occurred while updating container: {}, exception: {}", dto.getName(), e.toString())
+        );
     }
 
     @Override
     public Mono<Void> deleteByName(String name) {
-        return Mono.error(() -> new RuntimeException("not implemented yet"));
+        return Mono.fromCallable(() ->
+                mongoTemplate.query(Container.class).matching(Query.query(Criteria.where("name").is(name))).one()
+                        .switchIfEmpty(Mono.error(ContainerException.NotFoundContainerException.name(name)))
+                        .flatMap(domain ->
+                                mongoTemplate.remove(domain)
+                                        .then(eventPublisher.publish(new ContainerEvent.ContainerDeleted(domain.getContainerId(), domain.getName(), domain.getType())))
+                                        .thenReturn(domain)
+                        ).then()
+        ).doOnSubscribe(subscription ->
+                logger.debug("deleting container: {}", name)
+        ).flatMap(Function.identity()).doOnSuccess(domain ->
+                logger.debug("deleted container: {}", name)
+        ).doOnError(e ->
+                logger.error("exception occurred while deleting container: {}, exception: {}", name, e.toString())
+        );
     }
 
     public Mono<Void> verifyNameIsNotUsed(String name) {

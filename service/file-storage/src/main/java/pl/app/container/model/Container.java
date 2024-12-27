@@ -1,11 +1,13 @@
 package pl.app.container.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
+@Setter
 @Document(collection = "container")
 public class Container {
     @Id
@@ -25,8 +27,8 @@ public class Container {
     }
 
     public static enum ContainerType {
-        PUBLIC,     // object read - all,                   object write - scope object:write
-        PROTECTED,  // object read - scope object:read,     object write - scope object:write
-        PRIVATE     // object read - owner or scope object:admin.  object write -owner or scope object:admin
+        PUBLIC,
+        PROTECTED,
+        PRIVATE
     }
 }

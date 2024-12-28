@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
   <diagram id="YFsqn8lwmXzaRS9_h3kS" name="event storming">
-    <mxGraphModel dx="4348" dy="5688" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="3790" dy="5407" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -712,8 +712,8 @@
         <mxCell id="PE7gSDOJYnYgQTqbJG73-40" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="1200" y="4040" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-46" value="Storage Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="2120" y="40" width="1680" height="1460" as="geometry" />
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-46" value="Container Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2120" y="40" width="840" height="480" as="geometry" />
         </mxCell>
         <mxCell id="PE7gSDOJYnYgQTqbJG73-47" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;Container&amp;nbsp;&lt;/span&gt;Entity" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
           <mxGeometry x="40" y="40" width="760" height="400" as="geometry" />
@@ -739,8 +739,17 @@
         <mxCell id="PE7gSDOJYnYgQTqbJG73-56" value="Container Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
           <mxGeometry x="520" y="280" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-57" value="Object Aggregate" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
-          <mxGeometry x="40" y="480" width="760" height="920" as="geometry" />
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-96" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
+          <mxGeometry x="870" y="230" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-1" value="Revision Off Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-2" value="Revision On Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-57" value="Object Aggregate" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2160" y="600" width="760" height="880" as="geometry" />
         </mxCell>
         <mxCell id="PE7gSDOJYnYgQTqbJG73-65" value="Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
           <mxGeometry x="280" y="40" width="200" height="80" as="geometry" />
@@ -784,8 +793,20 @@
         <mxCell id="05Ro-x7eyQ1QDhRj3DBy-4" value="Create Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
           <mxGeometry x="40" y="400" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-80" value="&lt;font color=&quot;#ffffff&quot;&gt;Storage Transaction Script&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
-          <mxGeometry x="1120" y="40" width="520" height="520" as="geometry" />
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-101" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="PE7gSDOJYnYgQTqbJG73-102" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2930" y="290" as="sourcePoint" />
+            <mxPoint x="3170" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-64" value="Object Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="2120" y="560" width="840" height="960" as="geometry" />
+        </mxCell>
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-85" value="Storage Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="3240" y="40" width="600" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-80" value="&lt;font color=&quot;#ffffff&quot;&gt;Storage Transaction Script&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="WV5EfQXPdfZ8uTF_cEDn-85" vertex="1">
+          <mxGeometry x="40" y="40" width="520" height="520" as="geometry" />
         </mxCell>
         <mxCell id="PE7gSDOJYnYgQTqbJG73-88" value="Initialize Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
           <mxGeometry x="40" y="40" width="200" height="80" as="geometry" />
@@ -811,29 +832,20 @@
         <mxCell id="PE7gSDOJYnYgQTqbJG73-95" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
           <mxGeometry x="280" y="400" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-96" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
-          <mxGeometry x="870" y="230" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-98" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="PE7gSDOJYnYgQTqbJG73-46" source="PE7gSDOJYnYgQTqbJG73-47" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-98" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="PE7gSDOJYnYgQTqbJG73-47" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1910" y="400" as="sourcePoint" />
-            <mxPoint x="2430" y="620" as="targetPoint" />
+            <mxPoint x="4030" y="440" as="sourcePoint" />
+            <mxPoint x="4550" y="660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-101" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="PE7gSDOJYnYgQTqbJG73-46" source="PE7gSDOJYnYgQTqbJG73-57" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-86" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="PE7gSDOJYnYgQTqbJG73-57" target="PE7gSDOJYnYgQTqbJG73-102">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="810" y="250" as="sourcePoint" />
-            <mxPoint x="1050" y="340" as="targetPoint" />
+            <mxPoint x="2920" y="1040" as="sourcePoint" />
+            <mxPoint x="3280" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PE7gSDOJYnYgQTqbJG73-102" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
-          <mxGeometry x="850" y="530" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-1" value="Revision Off Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="1000" y="1320" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-2" value="Revision On Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="1000" y="1200" width="200" height="80" as="geometry" />
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-102" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="3010" y="610" width="200" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -2,9 +2,11 @@ package pl.app.object.adapter.in;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.*;
 import pl.app.object.query.ObjectDtoName;
 import pl.app.object.query.ObjectQueryService;
+import pl.app.shared.PathVariableExtractor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -27,10 +29,12 @@ class ObjectQueryRestController {
         return Mono.just(ResponseEntity.ok(queryService.fetchByContainer(containerName, ObjectDtoName.fromString(dto).getDtoClass())));
     }
 
-    @GetMapping("/{key}")
-    Mono<ResponseEntity<?>> fetchByContainerAndKey(@PathVariable String containerName, @PathVariable String key,
+    @GetMapping("/**")
+    Mono<ResponseEntity<?>> fetchByContainerAndKey(@PathVariable String containerName,
                                                    @RequestParam(required = false) Set<Integer> revision,
-                                                   @RequestParam(required = false) String dto) {
+                                                   @RequestParam(required = false) String dto,
+                                                   ServerHttpRequest request) {
+        String key = PathVariableExtractor.extractVariableAfterPath(resourcePath, request.getPath().pathWithinApplication().value());
         if (Objects.nonNull(revision) && !revision.isEmpty()) {
             return queryService.fetchByContainerAndKeyAndRevision(containerName, key, revision, ObjectDtoName.fromString(dto).getDtoClass())
                     .map(ResponseEntity::ok);
@@ -38,4 +42,6 @@ class ObjectQueryRestController {
         return queryService.fetchByContainerAndKey(containerName, key, ObjectDtoName.fromString(dto).getDtoClass())
                 .map(ResponseEntity::ok);
     }
+
+
 }

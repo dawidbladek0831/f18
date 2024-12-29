@@ -1,0 +1,41 @@
+services:
+  auth-postgres-db:
+    image: 'bitnami/postgresql:16'
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'auth-postgres-db:/bitnami/postgresql'
+    environment:
+      - POSTGRESQL_DATABASE=postgres
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+  auth-keycloak:
+    image: 'bitnami/keycloak:21'
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+    depends_on:
+      - auth-postgres-db
+    environment:
+      - KEYCLOAK_CREATE_ADMIN_USER=true
+      - KEYCLOAK_ADMIN_USER=user
+      - KEYCLOAK_ADMIN_PASSWORD=password
+      - KEYCLOAK_MANAGEMENT_USER=user
+      - KEYCLOAK_MANAGEMENT_PASSWORD=password
+
+      - KEYCLOAK_DATABASE_HOST=auth-postgres-db
+      - KEYCLOAK_DATABASE_PORT=5432
+      - KEYCLOAK_DATABASE_NAME=postgres
+      - KEYCLOAK_DATABASE_USER=postgres
+      - KEYCLOAK_DATABASE_PASSWORD=postgres
+      - KEYCLOAK_DATABASE_SCHEMA=public
+      - KEYCLOAK_JDBC_PARAMS=connectTimeout=30000
+
+      - KEYCLOAK_ENABLE_HTTPS=false
+
+volumes:
+  auth-postgres-db:

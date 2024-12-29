@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+group = "pl.app.common.mapper"
+version = "0.1.6"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    // JPA
+    implementation 'org.hibernate:hibernate-core:6.4.4.Final'
+
+    // TEST
+    testImplementation(platform('org.junit:junit-bom:5.10.2'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    testRuntimeOnly('org.junit.platform:junit-platform-launcher')
+    testImplementation 'org.assertj:assertj-core:3.25.3'
+}
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+jar {
+    enabled = true
+}

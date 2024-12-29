@@ -1,0 +1,853 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram id="YFsqn8lwmXzaRS9_h3kS" name="event storming">
+    <mxGraphModel dx="3790" dy="5407" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-1" value="&lt;div&gt;Domain Event&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-970" y="-3930" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-2" value="Command" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-730" y="-3930" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-3" value="Policy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-730" y="-3810" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-4" value="Actor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-970" y="-3690" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-5" value="Aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-210" y="-3930" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-6" value="Read Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66FF66;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-730" y="-3690" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-7" value="External System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF3399;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-970" y="-3570" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-8" value="Hot Spot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-970" y="-3810" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-15" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;label&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-970" y="-3980" width="680" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cuJFzhnlkX0wh9tE4dGZ-83" value="Mapping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-490" y="-3930" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="y4Lj_ysapqo_imUBppSc-1" value="Other process" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-490" y="-3810" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="y4Lj_ysapqo_imUBppSc-23" value="Rule" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-730" y="-3570" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="y9N6AHnFpK21wvBhakDQ-57" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="70" y="-3930" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="y9N6AHnFpK21wvBhakDQ-763" value="Context events invoke other Context&lt;br&gt;&lt;div&gt;(Eventually&amp;nbsp; consistent)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3D1F00;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="70" y="-3810" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="l0dBNbykYMsxJlFcGDXM-42" value="Entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#265E26;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-210" y="-3810" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-35" value="&lt;div&gt;process of creating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-3000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-36" value="Container Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-37" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-2860" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-38" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of stroring file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-2670" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-39" value="File Stored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="-2590" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-40" value="Local File Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2590" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-41" value="S3 Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2470" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-42" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of creating object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="-3000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-43" value="Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1320" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-44" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1290" y="-2860" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-45" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of deleting file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-2350" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-46" value="File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="-2270" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-47" value="Local File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2270" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-48" value="S3 Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2150" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-49" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of updating object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="-2760" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-50" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1760" y="-2680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-51" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1740" y="-2620" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-54" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1520" y="-2680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-55" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1760" y="-2560" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-56" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1750" y="-2500" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-58" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of removing object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="-2400" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-59" value="Object Removed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1520" y="-2320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-60" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1500" y="-2260" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-61" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of deleting object revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2000" y="-2800" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-62" value="Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1520" y="-2200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-63" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1500" y="-2140" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-65" value="process of deleting file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2040" y="-2720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-66" value="Object Revision Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2320" y="-2720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-67" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of restoring previous object&#39;s revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2000" y="-2560" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-68" value="process of coping file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2040" y="-2480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-69" value="Object Revision&amp;nbsp;Restored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2320" y="-2480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-70" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2290" y="-2420" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-71" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of coping file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-2030" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-72" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="-1950" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-73" value="Local File Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-1950" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-74" value="S3 Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-1830" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-75" value="Revision Disable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1040" y="-2560" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-76" value="Revision Enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1040" y="-2680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-77" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of initializing file storage&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-3000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-78" value="Storage Initialized" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="320" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-79" value="Local Folder Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-80" value="S3 Bucked Crated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="-2800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-81" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;process of initializing file storage&lt;/span&gt;" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-82" value="&lt;div&gt;process of updating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-2760" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-83" value="Container Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-2680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-84" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-2620" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-85" value="&lt;div&gt;process of deleting container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-2520" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-86" value="Container Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-2440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-87" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-2380" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-88" value="Revision Disable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1040" y="-2200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-89" value="Revision Enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1040" y="-2320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-90" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of creating object revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2000" y="-3000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-91" value="process of creating file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2040" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-92" value="Object Revision Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2320" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-93" value="&lt;div&gt;process of creating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-1000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-94" value="Container Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-95" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-860" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-96" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;process of initializing file storage&lt;/span&gt;" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-97" value="&lt;div&gt;process of updating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-760" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-98" value="Container Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-99" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-620" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-100" value="&lt;div&gt;process of deleting container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="-520" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-101" value="Container Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="-440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-102" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-700" y="-380" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-103" value="&lt;div&gt;process of creating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-1000" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-104" value="Create Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-105" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="460" y="-870" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-106" value="the one when user successfully create container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-107" value="name must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="720" y="-920" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-108" value="Container Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-109" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;process of initializing file storage&lt;/span&gt;" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="-920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-110" value="&lt;div&gt;process of updating container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-760" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-111" value="Update Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="-680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-112" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="460" y="-630" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-113" value="the one when user successfully update container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-114" value="name must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="720" y="-680" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-115" value="Container Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="-680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-116" value="&lt;div&gt;process of deleting container&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-520" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-117" value="Delete Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="-440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-118" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="460" y="-390" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-119" value="the one when user successfully delete&amp;nbsp; container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="-440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-120" value="Container Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="-440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-213" value="&lt;div&gt;process of creating object&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-214" value="Create Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-215" value="the one when user successfully create object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-216" value="Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-217" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="140" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-219" value="key must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="760" y="80" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-220" value="&lt;div&gt;process of updating object&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="400" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-221" value="Update Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-222" value="the one when user successfully update object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-223" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="540" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-224" value="key must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="760" y="480" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-225" value="Revision On Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-226" value="Revision Off Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-227" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-233" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1720" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-236" value="the one when user successfully update only object metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="840" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-237" value="Update Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="840" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-238" value="key must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="760" y="840" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-239" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="840" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-240" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="900" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-241" value="&lt;div&gt;process of removing object&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="1120" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-242" value="Remove Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-243" value="the one when user successfully remove object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-246" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="1250" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-249" value="the one when user successfully create object that was marked as deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-250" value="Create Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-251" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="260" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-253" value="Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-254" value="the one when user successfully update object that was marked as deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-255" value="Update Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-256" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="770" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-257" value="key must be unique" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#211100;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="760" y="720" width="200" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-258" value="Revision On Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-259" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-334" value="process of crating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1280" y="-2320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-335" value="&lt;div&gt;process of creating object revision&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="2000" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-337" value="the one when system successfully create revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="2080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-344" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1280" y="-2560" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-345" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1520" y="-2560" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-346" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1280" y="-2200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-370" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1040" y="-2920" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-371" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of creating object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-372" value="Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-373" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-710" y="140" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-374" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of updating object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="400" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-375" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-240" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-376" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-260" y="540" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-377" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-480" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-378" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-240" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-379" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-250" y="660" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-385" value="Revision Disable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-386" value="Revision Enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-390" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-720" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-391" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-480" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-393" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-394" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="80" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-395" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-396" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="480" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-397" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-398" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-399" value="process of creating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-412" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of removing object&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="1120" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-413" value="Object Removed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-480" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-414" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-500" y="1260" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-415" value="Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-480" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-416" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-500" y="1380" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-417" value="Revision Disable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-418" value="Revision Enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-419" value="process of crating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-720" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-420" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-720" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-421" value="process of crating object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-422" value="process of deleting object revision" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-423" value="Object Removed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-424" value="Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-425" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of deleting object revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="2200" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-426" value="process of deleting file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-427" value="Object Revision Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-428" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of restoring previous object&#39;s revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="2440" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-429" value="process of coping file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-430" value="Object Revision&amp;nbsp;Restored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-431" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-710" y="2580" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-432" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of creating object revision&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="2000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-433" value="process of creating file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="2080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-434" value="Object Revision Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="2080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-435" value="process of creating file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="2080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-436" value="Object Revision Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="2080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-439" value="&lt;div&gt;process of deleting object revision&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="2200" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-440" value="Delete Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-441" value="the one when user or system successfully delete revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-444" value="process of deleting file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-445" value="Object Revision Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="2280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-446" value="&lt;div&gt;process of restoring previous object&#39;s revision&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="2440" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-447" value="Restore Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="520" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-448" value="the one when user successfully restore previous object&#39;s revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-451" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="500" y="2330" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-452" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="490" y="2580" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-453" value="process of coping file" style="rounded=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=default;rotation=0;html=1;whiteSpace=wrap;horizontal=1;direction=east;flipH=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;arcSize=50;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1240" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-454" value="Object Revision&amp;nbsp;Restored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1480" y="2520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0n97tukV72xWSMjBDP36-457" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2290" y="-2660" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-1" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of stroring file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="3320" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-2" value="File Stored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-3" value="Local File Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-4" value="S3 Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-5" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of deleting file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="3640" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-6" value="File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-7" value="Local File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-8" value="S3 Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3840" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-9" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of coping file&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="3960" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-10" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-11" value="Local File Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-12" value="S3 Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="4160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-13" value="&lt;div&gt;&lt;span&gt;&lt;font&gt;process of initializing file storage&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="3000" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-14" value="Storage Initialized" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-680" y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-15" value="Local Folder Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-16" value="S3 Bucked Crated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-960" y="3200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-17" value="&lt;div&gt;process of initializing file storage&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3000" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-18" value="Initialize Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-19" value="the one when system successfully initialized storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-20" value="Storage Initialized" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-21" value="Local Storage Policy.&lt;br&gt;Creating folder in file system.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3080" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-22" value="S3 Storage Policy.&lt;br&gt;Creating bucked." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-23" value="&lt;div&gt;process of stroring file&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3320" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-24" value="Store File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-25" value="the one when system successfully store file" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-26" value="Local Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-27" value="File Stored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="3400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-28" value="S3 Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-29" value="&lt;div&gt;process of deleting file&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3640" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-30" value="Delete File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-31" value="the one when system successfully delete file" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-32" value="Local Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-33" value="S3 Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="3840" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-34" value="File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="3720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-35" value="&lt;div&gt;process of copy file&lt;span&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB89;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="3960" width="2000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-36" value="Copy File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-37" value="the one when system successfully copy file" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-38" value="Local Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-39" value="S3 Storage Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="960" y="4160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-40" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="4040" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-46" value="Container Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2120" y="40" width="840" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-47" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;Container&amp;nbsp;&lt;/span&gt;Entity" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
+          <mxGeometry x="40" y="40" width="760" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-50" value="Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#265E26;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="280" y="39.5" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-51" value="Create Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-52" value="Update Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="40" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-53" value="Delete Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="40" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-54" value="Container Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="520" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-55" value="Container Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="520" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-56" value="Container Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-47" vertex="1">
+          <mxGeometry x="520" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-96" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-46" vertex="1">
+          <mxGeometry x="870" y="230" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-1" value="Revision Off Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="1320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-2" value="Revision On Policy.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7F00FF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1000" y="1200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-57" value="Object Aggregate" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="2160" y="600" width="760" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-65" value="Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="280" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-66" value="Create Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-67" value="Object Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-68" value="Update Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-69" value="Object Updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-70" value="Remove Object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-71" value="Object Removed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-73" value="Delete Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-76" value="Restore Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="640" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-77" value="Object Revision Created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-78" value="Object Revision Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="640" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-79" value="Object Revision&amp;nbsp;Restored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-3" value="Object Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="520" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="05Ro-x7eyQ1QDhRj3DBy-4" value="Create Object Revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-57" vertex="1">
+          <mxGeometry x="40" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-101" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="PE7gSDOJYnYgQTqbJG73-102" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2930" y="290" as="sourcePoint" />
+            <mxPoint x="3170" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-64" value="Object Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="2120" y="560" width="840" height="960" as="geometry" />
+        </mxCell>
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-85" value="Storage Context" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="3240" y="40" width="600" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-80" value="&lt;font color=&quot;#ffffff&quot;&gt;Storage Transaction Script&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1" parent="WV5EfQXPdfZ8uTF_cEDn-85" vertex="1">
+          <mxGeometry x="40" y="40" width="520" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-88" value="Initialize Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-89" value="Storage Initialized" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="280" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-90" value="Store File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="40" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-91" value="File Stored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="280" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-92" value="Delete File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="40" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-93" value="File Deleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="280" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-94" value="Copy File" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007FFF;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="40" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-95" value="File Copied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="PE7gSDOJYnYgQTqbJG73-80" vertex="1">
+          <mxGeometry x="280" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-98" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="PE7gSDOJYnYgQTqbJG73-47" target="PE7gSDOJYnYgQTqbJG73-80" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="4030" y="440" as="sourcePoint" />
+            <mxPoint x="4550" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WV5EfQXPdfZ8uTF_cEDn-86" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;startSize=8;endSize=8;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="PE7gSDOJYnYgQTqbJG73-57" target="PE7gSDOJYnYgQTqbJG73-102">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2920" y="1040" as="sourcePoint" />
+            <mxPoint x="3280" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PE7gSDOJYnYgQTqbJG73-102" value="&lt;div&gt;Context synchronously&amp;nbsp; call other Context&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Strongly&amp;nbsp; consistent)&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000033;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="3010" y="610" width="200" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

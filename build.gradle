@@ -11,8 +11,6 @@ ext {
 }
 
 subprojects {
-    sourceCompatibility = "17"
-
     group = 'pl.app'
     version = '0.0.1'
 

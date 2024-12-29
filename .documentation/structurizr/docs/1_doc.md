@@ -275,7 +275,15 @@ Deployment diagram - dev:
 
         .\gradlew service:file-storage:test
 
+##### Docker
+###### Publish image
+1. Build image:
 
+        docker build . -f .\.docker\file_storage_service_image\Dockerfile -t ghcr.io/grubeb/file-storage-service:latest --no-cache 
+
+2. Publish image:
+
+         docker push ghcr.io/grubeb/file-storage-service:latest
 
 
 

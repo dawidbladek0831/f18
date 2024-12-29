@@ -9,7 +9,7 @@ version = '0.0.1'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -99,7 +99,8 @@ tasks.named('test') {
     systemProperty 'spring.profiles.active', 'test'
 }
 tasks.jar {
-    manifest {
-        archiveFileName.set("file-storage-service.jar")
-    }
+    archiveFileName.set("file-storage-service-normal.jar")
+}
+tasks.bootJar {
+    archiveFileName.set("file-storage-service-executable.jar")
 }

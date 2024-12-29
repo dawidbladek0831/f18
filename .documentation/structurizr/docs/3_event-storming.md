@@ -25,7 +25,7 @@ An Object represents a file stored in the system. Object consists of the followi
 - Key: Derived from the file name,
 - Metadata: Includes additional information about the file, such as size, creation date, and custom attributes.
 
-#### Strategic Design (ES: Pig Picture & Process Modeling)
+#### **Strategic Design (ES: Pig Picture & Process Modeling)**
 During modeling, the following **definitions** were established as universal concepts, applicable across all bounded contexts within the domain:
 - container - logical container for objects;
 - object - represents a file stored in the system;

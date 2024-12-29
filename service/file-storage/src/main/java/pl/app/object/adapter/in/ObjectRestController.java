@@ -3,6 +3,7 @@ package pl.app.object.adapter.in;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import pl.app.object.application.port.in.ObjectCommand;
 import pl.app.object.application.port.in.ObjectService;
 import pl.app.object.query.ObjectMapper;
 import pl.app.object.query.dto.ObjectSimpleDto;
+import pl.app.shared.PathVariableExtractor;
 import reactor.core.publisher.Mono;
 
 import java.util.Base64;
@@ -42,10 +44,12 @@ class ObjectRestController {
                 });
     }
 
-    @PutMapping("/{key}")
-    Mono<ResponseEntity<ObjectSimpleDto>> update(@PathVariable String containerName, @PathVariable String key,
+    @PutMapping("/**")
+    Mono<ResponseEntity<ObjectSimpleDto>> update(@PathVariable String containerName,
                                                  @RequestBody(required = false) UpdateObjectBase64Dto dto,
-                                                 @RequestParam(required = false) List<Integer> revision) {
+                                                 @RequestParam(required = false) List<Integer> revision,
+                                                 ServerHttpRequest request) {
+        String key = PathVariableExtractor.extractVariableAfterPath(resourcePath, request.getPath().pathWithinApplication().value());
         if (Objects.nonNull(revision) && !revision.isEmpty()) {
             return service.restoreRevision(new ObjectCommand.RestoreObjectRevisionCommand(key, containerName, revision.getFirst()))
                     .map(e -> objectMapper.map(e, ObjectSimpleDto.class))
@@ -56,9 +60,11 @@ class ObjectRestController {
                 .map(e -> ResponseEntity.status(HttpStatus.OK).body(e));
     }
 
-    @DeleteMapping("/{key}")
-    Mono<ResponseEntity<Void>> remove(@PathVariable String containerName, @PathVariable String key,
-                                      @RequestParam(required = false) Set<Integer> revision) {
+    @DeleteMapping("/**")
+    Mono<ResponseEntity<Void>> remove(@PathVariable String containerName,
+                                      @RequestParam(required = false) Set<Integer> revision,
+                                      ServerHttpRequest request) {
+        String key = PathVariableExtractor.extractVariableAfterPath(resourcePath, request.getPath().pathWithinApplication().value());
         if (Objects.nonNull(revision) && !revision.isEmpty()) {
             return service.deleteRevision(new ObjectCommand.DeleteObjectRevisionCommand(key, containerName, revision))
                     .then(Mono.just(ResponseEntity.noContent().build()));

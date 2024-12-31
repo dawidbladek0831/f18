@@ -14,6 +14,7 @@ import pl.app.container.model.Container;
 import pl.app.container.model.RevisionPolicyType;
 import pl.app.container.service.ContainerService;
 import pl.app.container.service.dto.ContainerDto;
+import pl.app.storage.StorageService;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ class ContainerRestControllerTest extends AbstractIntegrationTest {
 
     @Autowired
     private ContainerService containerService;
+
+    @Autowired
+    private StorageService storageService;
 
     @Test
     void create_shouldCreateContainer_whenUserHasPermissions() {
@@ -43,7 +47,9 @@ class ContainerRestControllerTest extends AbstractIntegrationTest {
     @Test
     void create_shouldThrow_WhenThereIsContainerWithGivenName() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.CONTAINER_WRITE.getScopeName()))))
@@ -66,7 +72,9 @@ class ContainerRestControllerTest extends AbstractIntegrationTest {
     @Test
     void update_shouldUpdate_whenContainerExists() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.CONTAINER_WRITE.getScopeName()))))
@@ -79,7 +87,9 @@ class ContainerRestControllerTest extends AbstractIntegrationTest {
     @Test
     void delete_shouldDelete_whenContainerExists() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.CONTAINER_WRITE.getScopeName()))))

@@ -8,9 +8,8 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 
 @Component
 class LocalStorageService implements StorageService {
@@ -44,6 +43,31 @@ class LocalStorageService implements StorageService {
                 Files.createDirectories(pathOfDirectory);
             } catch (IOException e) {
                 return Mono.error(() -> new RuntimeException("Failed to create local directory to store files"));
+            }
+        }
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<Void> cleanUp(ObjectId containerId) {
+        final Path pathOfDirectory = pathOfDirectory(containerId);
+        if (!Files.isDirectory(pathOfDirectory)) {
+            try {
+                Files.walkFileTree(pathOfDirectory, new SimpleFileVisitor<>() {
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                        Files.delete(file);
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                    @Override
+                    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                        Files.delete(dir);
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+            } catch (IOException e) {
+                return Mono.error(() -> new RuntimeException("Failed to delete local directory"));
             }
         }
         return Mono.empty();

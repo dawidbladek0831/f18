@@ -14,6 +14,7 @@ import pl.app.container.model.Container;
 import pl.app.container.model.RevisionPolicyType;
 import pl.app.container.service.ContainerService;
 import pl.app.container.service.dto.ContainerDto;
+import pl.app.storage.StorageService;
 
 import java.util.List;
 
@@ -27,10 +28,15 @@ class ContainerQueryRestControllerTest extends AbstractIntegrationTest {
     @Autowired
     private ContainerService containerService;
 
+    @Autowired
+    private StorageService storageService;
+
     @Test
     void fetchByName_shouldFetch_whenUserHasPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.CONTAINER_READ.getScopeName()))))
@@ -42,7 +48,9 @@ class ContainerQueryRestControllerTest extends AbstractIntegrationTest {
     @Test
     void fetchByName_shouldThrow_whenUserHasNoPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .get().uri("/api/v1/containers/{containerName}", containerName)
@@ -53,7 +61,9 @@ class ContainerQueryRestControllerTest extends AbstractIntegrationTest {
     @Test
     void fetchAll_shouldFetch_whenUserHasPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.CONTAINER_READ.getScopeName()))))

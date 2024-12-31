@@ -27,7 +27,7 @@ class RevisionOffPolicy implements RevisionPolicy {
         var revision = objectAggregate.addRevision(RevisionType.CREATED, command.getContent());
         return mongoTemplate.insert(objectAggregate)
                 .then(storageService.create(container.getContainerId(), revision.getStorageId(), command.getContent()))
-                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), revision.getRevisionId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), container.getContainerId(), revision.getRevisionId(), revision.getStorageId())))
                 .then(eventPublisher.publish(new ObjectEvent.ObjectCreated(objectAggregate.getObjectId())))
                 .thenReturn(objectAggregate);
     }
@@ -37,14 +37,12 @@ class RevisionOffPolicy implements RevisionPolicy {
         Set<ObjectAggregate.Revision> deletedRevisions = objectAggregate.deleteAllRevisions();
         var newRevision = objectAggregate.addRevision(RevisionType.UPDATED, command.getContent());
         return mongoTemplate.save(objectAggregate)
-                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), newRevision.getRevisionId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), container.getContainerId(), newRevision.getRevisionId(), newRevision.getStorageId())))
                 .then(Flux.fromIterable(deletedRevisions)
-                        .flatMap(deletedRevision ->
-                                storageService.delete(container.getContainerId(), deletedRevision.getStorageId())
-                                        .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(objectAggregate.getObjectId(), deletedRevision.getRevisionId())))
-                        ).then())
-                .then(storageService.create(container.getContainerId(), newRevision.getStorageId(), command.getContent()))
-                .then(eventPublisher.publish(new ObjectEvent.ObjectUpdated(objectAggregate.getObjectId())))
+                        .flatMap(deletedRevision -> eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(objectAggregate.getObjectId(), container.getContainerId(), deletedRevision.getRevisionId(), deletedRevision.getStorageId())))
+                        .then()
+                ).then(storageService.create(container.getContainerId(), newRevision.getStorageId(), command.getContent()))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectUpdated(objectAggregate.getObjectId(), container.getContainerId())))
                 .thenReturn(objectAggregate);
     }
 
@@ -53,11 +51,9 @@ class RevisionOffPolicy implements RevisionPolicy {
         Set<ObjectAggregate.Revision> deletedRevisions = objectAggregate.deleteAllRevisions();
         return mongoTemplate.remove(objectAggregate)
                 .then(Flux.fromIterable(deletedRevisions)
-                        .flatMap(deletedRevision ->
-                                storageService.delete(container.getContainerId(), deletedRevision.getStorageId())
-                                        .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(objectAggregate.getObjectId(), deletedRevision.getRevisionId())))
-                        ).then())
-                .then(eventPublisher.publish(new ObjectEvent.ObjectDeleted(objectAggregate.getObjectId())))
+                        .flatMap(deletedRevision -> eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(objectAggregate.getObjectId(), container.getContainerId(), deletedRevision.getRevisionId(), deletedRevision.getStorageId())))
+                        .then()
+                ).then(eventPublisher.publish(new ObjectEvent.ObjectDeleted(objectAggregate.getObjectId(), container.getContainerId())))
                 .thenReturn(objectAggregate);
     }
 }

@@ -18,6 +18,7 @@ import pl.app.container.service.dto.ContainerDto;
 import pl.app.object.adapter.in.dto.CreateObjectBase64Dto;
 import pl.app.object.application.port.in.ObjectCommand;
 import pl.app.object.application.port.in.ObjectService;
+import pl.app.storage.StorageService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,11 +34,15 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     private ContainerService containerService;
     @Autowired
     private ObjectService objectService;
+    @Autowired
+    private StorageService storageService;
 
     @Test
     void fetchByContainer_shouldFetch_whenContainerOfPublicTypeAndUserHasPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_READ.getScopeName()))))
@@ -49,7 +54,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     @Test
     void fetchByContainer_shouldFetch_whenContainerOfProtectedTypeAndUserHasPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_READ.getScopeName()))))
@@ -61,7 +68,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     @Test
     void fetchByContainer_shouldFetch_whenContainerOfPrivateTypeAndUserHasPermissions() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_MANAGE.getScopeName()))))
@@ -73,7 +82,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     @Test
     void fetchByContainer_shouldThrow_whenContainerOfPrivateTypeAndUserHasOnlyReadPermission() {
         var containerName = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_READ.getScopeName()))))
@@ -86,7 +97,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     void fetchByContainerAndKey_shouldFetch_whenObjectExistsAndContainerOfTypePublic() {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
         objectService.crate(new ObjectCommand.CreateObjectCommand(objectKey, containerName, new byte[]{}, new HashMap<>())).block();
 
         webTestClient
@@ -99,7 +112,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     void fetchByContainerAndKey_shouldFetch_whenObjectExistsAndContainerOfTypeProtectedAndUserHasReadPermission() {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
         objectService.crate(new ObjectCommand.CreateObjectCommand(objectKey, containerName, new byte[]{}, new HashMap<>())).block();
 
         webTestClient
@@ -113,7 +128,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
     void fetchByContainerAndKey_shouldThrow_whenObjectExistsAndContainerOfTypeProtectedAndUserHasNoReadPermission() {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
         objectService.crate(new ObjectCommand.CreateObjectCommand(objectKey, containerName, new byte[]{}, new HashMap<>())).block();
 
         webTestClient
@@ -127,7 +144,9 @@ class ObjectQueryRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())

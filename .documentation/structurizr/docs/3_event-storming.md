@@ -31,23 +31,24 @@ During modeling, the following **definitions** were established as universal con
 - object - represents a file stored in the system;
 
 #### Legend:
-![img.png](images/legend.png)
+![](images/legend.png)
 
 #### ES. Pig Picture:
-![img.png](images/big-picture.png)
+![](images/big-picture.png)
 
 #### ES. Process Modeling:
 - container related processes
-![img.png](images/img.png)
+![](images/img.png)
 
 - object related processes:
-![img_1.png](images/img_1.png)
-![img_2.png](images/img_2.png)
-- storage related processes:
-![img_3.png](images/img_3.png)
+![](images/img_1.png)
+![](images/img_2.png)
 
+- storage related processes:
+![](images/img_3.png)
+![](images/img_4.png)
 #### **Tactical Design (ES: Design Modeling)**
-![img_4.png](images/img_4.png)
+![](images/img_5.png)
 
 After documenting and describing the processes, the following **bounded contexts** were identified:
 

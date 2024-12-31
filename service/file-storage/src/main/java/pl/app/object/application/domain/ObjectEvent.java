@@ -21,6 +21,7 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectUpdated implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
     }
 
     @Data
@@ -28,6 +29,7 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectRemoved implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
     }
 
     @Data
@@ -35,6 +37,7 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectDeleted implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
     }
 
     @Data
@@ -42,7 +45,9 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectRevisionCreated implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
         private Integer revisionId;
+        private String storageId;
     }
 
     @Data
@@ -50,7 +55,9 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectRevisionDeleted implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
         private Integer revisionId;
+        private String storageId;
     }
 
     @Data
@@ -58,6 +65,10 @@ public interface ObjectEvent {
     @AllArgsConstructor
     class ObjectRevisionRestored implements Serializable {
         private ObjectId objectId;
+        private ObjectId containerId;
         private Integer revisionId;
+        private String storageId;
+        private Integer leadRevisionId;
+        private String leadStorageId;
     }
 }

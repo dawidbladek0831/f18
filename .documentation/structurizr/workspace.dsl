@@ -33,6 +33,7 @@ workspace {
         fileStorageSystem.fileStorageService.objectComponent -> fileStorageSystem.databaseContainer "Uses"
         fileStorageSystem.fileStorageService.objectComponent -> fileStorageSystem.kafkaContainer "Uses"
         fileStorageSystem.fileStorageService.storageComponent -> fileStorageSystem.localFileSystemContainer "Uses"
+        fileStorageSystem.fileStorageService.storageComponent -> fileStorageSystem.kafkaContainer "Uses"
         fileStorageSystem.fileStorageService -> iam.keycloak "Take keys"
 
 

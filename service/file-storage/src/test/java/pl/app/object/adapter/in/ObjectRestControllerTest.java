@@ -18,6 +18,7 @@ import pl.app.container.service.dto.ContainerDto;
 import pl.app.object.adapter.in.dto.CreateObjectBase64Dto;
 import pl.app.object.adapter.in.dto.UpdateObjectBase64Dto;
 import pl.app.object.application.port.in.ObjectService;
+import pl.app.storage.StorageService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,12 +36,17 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
     @Autowired
     private ObjectService objectService;
 
+    @Autowired
+    private StorageService storageService;
+
     @Test
     void crate_shouldCreate_whenContainerExistsAndUserHasWritePermission() {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -56,8 +62,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON)).block();
-
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PUBLIC, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
                         .authorities(List.of(new SimpleGrantedAuthority(FSSScopes.OBJECT_MANAGE.getScopeName()))))
@@ -72,7 +79,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -96,7 +105,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -120,7 +131,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -145,7 +158,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
         var userId2 = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -170,7 +185,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
         var userId2 = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -194,7 +211,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PROTECTED, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -217,7 +236,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -241,7 +262,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
         var userId2 = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())
@@ -264,7 +287,9 @@ class ObjectRestControllerTest extends AbstractIntegrationTest {
         var containerName = ObjectId.get().toString();
         var objectKey = ObjectId.get().toString();
         var userId = ObjectId.get().toString();
-        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON)).block();
+        containerService.create(new ContainerDto(null, containerName, Container.ContainerType.PRIVATE, RevisionPolicyType.REVISION_ON))
+                .flatMap(container -> storageService.init(container.getContainerId()))
+                .block();
 
         webTestClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt().jwt(Jwt.withTokenValue("mock-token").header("alg", "none").claim("sub", userId).build())

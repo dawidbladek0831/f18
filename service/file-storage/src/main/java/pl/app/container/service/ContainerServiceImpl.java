@@ -12,7 +12,6 @@ import pl.app.container.model.ContainerEvent;
 import pl.app.container.model.ContainerException;
 import pl.app.container.service.dto.ContainerDto;
 import pl.app.shared.EventPublisher;
-import pl.app.storage.StorageService;
 import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
@@ -27,7 +26,6 @@ class ContainerServiceImpl implements ContainerService {
     private final EventPublisher eventPublisher;
 
     private final ContainerMapper mapper;
-    private final StorageService storageService;
 
     @Override
     public Mono<ContainerDto> create(ContainerDto dto) {
@@ -35,8 +33,7 @@ class ContainerServiceImpl implements ContainerService {
                     return verifyNameIsNotUsed(dto.getName())
                             .then(Mono.defer(() -> {
                                 var domain = new Container(dto.getName(), dto.getType(), dto.getRevisionPolicyType());
-                                return storageService.init(domain.getContainerId())
-                                        .then(mongoTemplate.insert(domain))
+                                return mongoTemplate.insert(domain)
                                         .then(eventPublisher.publish(new ContainerEvent.ContainerCreated(domain.getContainerId(), domain.getName(), domain.getType())))
                                         .thenReturn(domain);
                             }))

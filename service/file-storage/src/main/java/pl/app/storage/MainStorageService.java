@@ -40,6 +40,20 @@ class MainStorageService implements StorageService {
     }
 
     @Override
+    public Mono<Void> cleanUp(ObjectId containerId) {
+        return Mono.fromCallable(() ->
+                activeService.cleanUp(containerId)
+                        .then(eventPublisher.publish(new FileEvent.StorageCleaned(containerId)))
+        ).doOnSubscribe(subscription ->
+                logger.debug("cleaning of storage: {}", containerId)
+        ).flatMap(Function.identity()).doOnSuccess(onSuccess ->
+                logger.debug("cleaned of storage: {}", containerId)
+        ).doOnError(e ->
+                logger.error("exception occurred while cleaning of storage: {}, exception: {}", containerId, e.toString())
+        );
+    }
+
+    @Override
     public Mono<Void> create(ObjectId containerId, String storageId, byte[] content) {
         return Mono.fromCallable(() -> activeService.create(containerId, storageId, content)
                 .then(eventPublisher.publish(new FileEvent.FileStored(containerId, storageId)))

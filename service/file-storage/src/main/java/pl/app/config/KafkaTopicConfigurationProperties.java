@@ -27,6 +27,7 @@ public class KafkaTopicConfigurationProperties {
     private Topic objectRevisionRestored;
 
     private Topic storageInitialized;
+    private Topic storageCleaned;
     private Topic fileStored;
     private Topic fileDeleted;
     private Topic fileCopied;

@@ -19,6 +19,13 @@ public interface FileEvent {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
+    class StorageCleaned implements Serializable {
+        private ObjectId containerId;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     class FileStored implements Serializable {
         private ObjectId containerId;
         private String storageId;

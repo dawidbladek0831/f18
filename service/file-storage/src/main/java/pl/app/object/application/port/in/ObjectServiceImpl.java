@@ -15,7 +15,6 @@ import pl.app.object.application.domain.ObjectAggregate;
 import pl.app.object.application.domain.ObjectEvent;
 import pl.app.object.application.domain.ObjectException;
 import pl.app.shared.EventPublisher;
-import pl.app.storage.StorageService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -31,7 +30,6 @@ class ObjectServiceImpl implements ObjectService {
 
     private final ReactiveMongoTemplate mongoTemplate;
     private final EventPublisher eventPublisher;
-    private final StorageService storageService;
 
     private final ContainerQueryService containerQueryService;
     private final ObjectDomainRepository objectDomainRepository;
@@ -124,10 +122,8 @@ class ObjectServiceImpl implements ObjectService {
                                             var deletedRevisions = domain.deleteRevisions(command.getRevisionIds());
                                             return mongoTemplate.save(domain)
                                                     .then(Flux.fromIterable(deletedRevisions)
-                                                            .flatMap(deletedRevision ->
-                                                                    storageService.delete(container.getContainerId(), deletedRevision.getStorageId())
-                                                                            .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(domain.getObjectId(), deletedRevision.getRevisionId())))
-                                                            ).then()
+                                                            .flatMap(deletedRevision -> eventPublisher.publish(new ObjectEvent.ObjectRevisionDeleted(domain.getObjectId(), container.getContainerId(), deletedRevision.getRevisionId(), deletedRevision.getStorageId())))
+                                                            .then()
                                                     )
                                                     .thenReturn(domain);
                                         })
@@ -152,8 +148,9 @@ class ObjectServiceImpl implements ObjectService {
                                             var restoringRevision = domain.getRevisionByIdOrThrow(command.getRevisionId());
                                             var restoredRevision = domain.restoreRevision(command.getRevisionId());
                                             return mongoTemplate.save(domain)
-                                                    .then(storageService.copy(container.getContainerId(), restoringRevision.getStorageId(), restoredRevision.getStorageId()))
-                                                    .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionRestored(domain.getObjectId(), restoredRevision.getRevisionId())))
+                                                    .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionRestored(domain.getObjectId(), container.getContainerId(),
+                                                            restoringRevision.getRevisionId(), restoringRevision.getStorageId(),
+                                                            restoredRevision.getRevisionId(), restoredRevision.getStorageId())))
                                                     .thenReturn(domain);
                                         })
                         )

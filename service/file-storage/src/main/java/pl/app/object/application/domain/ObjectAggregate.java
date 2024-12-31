@@ -21,6 +21,7 @@ public class ObjectAggregate {
     private ObjectId containerId;
     private Set<Revision> revisions;
     private Map<String, Object> metadata;
+    private Integer nextStorageNumber;
 
     public ObjectAggregate(ObjectId containerId, String key, Map<String, Object> metadata) {
         this.objectId = ObjectId.get();
@@ -29,13 +30,14 @@ public class ObjectAggregate {
         this.metadata = Objects.isNull(metadata) ? new HashMap<>() : new HashMap<>(metadata);
         this.metadata.put(METADATA_EXTENSION_KEY, getFileExtension(key).orElse(""));
         this.revisions = new LinkedHashSet<>();
+        this.nextStorageNumber = 0;
     }
 
     public Revision addRevision(RevisionType revisionType, byte[] content) {
         return switch (revisionType) {
             case CREATED, UPDATED, RESTORED -> {
                 final Integer newRevisionId = getNextRevisionId();
-                final String storageId = getStorageId(newRevisionId, (String) metadata.get(METADATA_EXTENSION_KEY));
+                final String storageId = getStorageId();
                 Revision newRevision = new Revision(newRevisionId, revisionType, storageId, content.length);
                 revisions.add(newRevision);
                 yield newRevision;
@@ -69,7 +71,7 @@ public class ObjectAggregate {
     public Revision restoreRevision(Integer revisionId) {
         Revision revision = getRevisionByIdOrThrow(revisionId);
         final Integer newRevisionId = getNextRevisionId();
-        final String newRevisionStorageId = getStorageId(newRevisionId, (String) metadata.get(METADATA_EXTENSION_KEY));
+        final String newRevisionStorageId = getStorageId();
         Revision newRevision = new Revision(newRevisionId, RevisionType.RESTORED, newRevisionStorageId, revision.getSize());
         revisions.add(newRevision);
         return newRevision;
@@ -102,8 +104,9 @@ public class ObjectAggregate {
         return currentRevisionId + 1;
     }
 
-    private String getStorageId(Integer revisionId, String extension) {
-        return objectId + "_" + revisionId + "." + extension;
+    private String getStorageId() {
+        this.nextStorageNumber++;
+        return objectId + "_" + nextStorageNumber + "." + metadata.get(METADATA_EXTENSION_KEY);
     }
 
     private Optional<String> getFileExtension(String filename) {

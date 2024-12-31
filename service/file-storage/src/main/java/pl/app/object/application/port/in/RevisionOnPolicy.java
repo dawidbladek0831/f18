@@ -27,7 +27,7 @@ class RevisionOnPolicy implements RevisionPolicy {
         var revision = objectAggregate.addRevision(RevisionType.CREATED, command.getContent());
         return mongoTemplate.insert(objectAggregate)
                 .then(storageService.create(container.getContainerId(), revision.getStorageId(), command.getContent()))
-                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), revision.getRevisionId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), container.getContainerId(), revision.getRevisionId(), revision.getStorageId())))
                 .then(eventPublisher.publish(new ObjectEvent.ObjectCreated(objectAggregate.getObjectId())))
                 .thenReturn(objectAggregate);
     }
@@ -35,11 +35,10 @@ class RevisionOnPolicy implements RevisionPolicy {
     @Override
     public Mono<ObjectAggregate> updateObject(ContainerDto container, ObjectAggregate objectAggregate, ObjectCommand.UpdateObjectCommand command) {
         var revision = objectAggregate.addRevision(RevisionType.UPDATED, command.getContent());
-        var event = new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), revision.getRevisionId());
         return mongoTemplate.save(objectAggregate)
                 .then(storageService.create(container.getContainerId(), revision.getStorageId(), command.getContent()))
-                .then(eventPublisher.publish(new ObjectEvent.ObjectUpdated(objectAggregate.getObjectId())))
-                .then(eventPublisher.publish(event))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), container.getContainerId(), revision.getRevisionId(), revision.getStorageId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectUpdated(objectAggregate.getObjectId(), container.getContainerId())))
                 .thenReturn(objectAggregate);
     }
 
@@ -51,8 +50,8 @@ class RevisionOnPolicy implements RevisionPolicy {
         }
         var revision = objectAggregate.addRevision(RevisionType.DELETED, new byte[0]);
         return mongoTemplate.save(objectAggregate)
-                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), revision.getRevisionId())))
-                .then(eventPublisher.publish(new ObjectEvent.ObjectRemoved(objectAggregate.getObjectId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRevisionCreated(objectAggregate.getObjectId(), container.getContainerId(), revision.getRevisionId(), revision.getStorageId())))
+                .then(eventPublisher.publish(new ObjectEvent.ObjectRemoved(objectAggregate.getObjectId(), container.getContainerId())))
                 .thenReturn(objectAggregate);
     }
 }

@@ -2,6 +2,8 @@ package pl.app.shared;
 
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import pl.app.config.KafkaTopicConfigurationProperties;
@@ -16,6 +18,7 @@ import java.util.Collection;
 @Component
 @RequiredArgsConstructor
 class KafkaEventPublisherImpl implements EventPublisher {
+    private final Logger logger = LoggerFactory.getLogger(KafkaEventPublisherImpl.class);
     private final KafkaTemplate<ObjectId, Object> kafkaTemplate;
     private final KafkaTopicConfigurationProperties topicNames;
 
@@ -46,13 +49,18 @@ class KafkaEventPublisherImpl implements EventPublisher {
 
             case FileEvent.StorageInitialized e ->
                     Mono.fromFuture(kafkaTemplate.send(topicNames.getStorageInitialized().getName(), e.getContainerId(), event)).then();
+            case FileEvent.StorageCleaned e ->
+                    Mono.fromFuture(kafkaTemplate.send(topicNames.getStorageCleaned().getName(), e.getContainerId(), event)).then();
             case FileEvent.FileStored e ->
                     Mono.fromFuture(kafkaTemplate.send(topicNames.getFileStored().getName(), e.getContainerId(), event)).then();
             case FileEvent.FileDeleted e ->
                     Mono.fromFuture(kafkaTemplate.send(topicNames.getFileDeleted().getName(), e.getContainerId(), event)).then();
             case FileEvent.FileCopied e ->
                     Mono.fromFuture(kafkaTemplate.send(topicNames.getFileCopied().getName(), e.getContainerId(), event)).then();
-            default -> Mono.empty();
+            default -> {
+                logger.error("event {} is not configured in EventPublisher", event.getClass().getSimpleName());
+                yield Mono.empty();
+            }
         };
     }
 

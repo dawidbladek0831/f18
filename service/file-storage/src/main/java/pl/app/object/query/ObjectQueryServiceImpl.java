@@ -12,6 +12,7 @@ import pl.app.object.application.domain.ObjectException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,27 @@ class ObjectQueryServiceImpl implements ObjectQueryService {
                         .matching(Query.query(Criteria.where("containerId").is(container.getContainerId())))
                         .all()
                         .map(e -> mapper.map(e, dtoClass))
+                );
+    }
+
+    @Override
+    public <T> Flux<T> fetchByContainer(String containerName, Class<T> dtoClass, Map<String, String> filters) {
+        Map<String, String> metadataFilters = filters.entrySet().stream()
+                .filter(e -> e.getKey().startsWith("metadata."))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        return containerQueryService.fetchByName(containerName)
+                .flatMap(container -> AuthorizationService.verifySubjectHasAuthorityToReadObjectsInContainer(container).thenReturn(container))
+                .flatMapMany(container -> {
+                            Criteria criteria = Criteria.where("containerId").is(container.getContainerId());
+                            for (Map.Entry<String, String> entry : metadataFilters.entrySet()) {
+                                criteria = criteria.and(entry.getKey()).is(entry.getValue());
+                            }
+                            return mongoTemplate.query(ObjectAggregateQuery.class)
+                                    .matching(Query.query(criteria))
+                                    .all()
+                                    .map(e -> mapper.map(e, dtoClass));
+                        }
                 );
     }
 

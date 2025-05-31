@@ -10,6 +10,7 @@ import pl.app.shared.PathVariableExtractor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -25,8 +26,9 @@ class ObjectQueryRestController {
 
     @GetMapping
     Mono<ResponseEntity<Flux<?>>> fetchByContainer(@PathVariable String containerName,
-                                                   @RequestParam(required = false) String dto) {
-        return Mono.just(ResponseEntity.ok(queryService.fetchByContainer(containerName, ObjectDtoName.fromString(dto).getDtoClass())));
+                                                   @RequestParam(required = false) String dto,
+                                                   @RequestParam Map<String, String> queryParams) {
+        return Mono.just(ResponseEntity.ok(queryService.fetchByContainer(containerName, ObjectDtoName.fromString(dto).getDtoClass(), queryParams)));
     }
 
     @GetMapping("/**")

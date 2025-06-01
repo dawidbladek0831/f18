@@ -33,4 +33,14 @@ public interface ContainerException {
             return new DuplicatedContainerNameException(MessageFormat.format("there are container for given name: {0}", name));
         }
     }
+
+    class EmptyContainerTypeException extends NotFoundException {
+        public EmptyContainerTypeException() {
+            super("container type is not set");
+        }
+
+        public EmptyContainerTypeException(String message) {
+            super(message);
+        }
+    }
 }

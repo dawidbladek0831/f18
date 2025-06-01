@@ -11,7 +11,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -25,23 +24,20 @@ class ObjectQueryRestController {
 
 
     @GetMapping
-    Mono<ResponseEntity<Flux<?>>> fetchByContainer(@PathVariable String containerName,
-                                                   @RequestParam(required = false) String dto,
-                                                   @RequestParam Map<String, String> queryParams) {
-        return Mono.just(ResponseEntity.ok(queryService.fetchByContainer(containerName, ObjectDtoName.fromString(dto).getDtoClass(), queryParams)));
+    Mono<ResponseEntity<Flux<?>>> fetchAll(@PathVariable String containerName,
+                                           @RequestParam(required = false) String dto,
+                                           @RequestParam Map<String, Object> queryParams) {
+        return Mono.just(ResponseEntity.ok(queryService.fetchAll(containerName, queryParams, ObjectDtoName.fromString(dto).getDtoClass())));
     }
 
     @GetMapping("/**")
-    Mono<ResponseEntity<?>> fetchByContainerAndKey(@PathVariable String containerName,
-                                                   @RequestParam(required = false) Set<Integer> revision,
-                                                   @RequestParam(required = false) String dto,
-                                                   ServerHttpRequest request) {
+    Mono<ResponseEntity<?>> fetchOne(@PathVariable String containerName,
+                                     @RequestParam(required = false) Set<Integer> revision,
+                                     @RequestParam(required = false) String dto,
+                                     @RequestParam Map<String, Object> queryParams,
+                                     ServerHttpRequest request) {
         String key = PathVariableExtractor.extractVariableAfterPath(resourcePath, request.getPath().pathWithinApplication().value());
-        if (Objects.nonNull(revision) && !revision.isEmpty()) {
-            return queryService.fetchByContainerAndKeyAndRevision(containerName, key, revision, ObjectDtoName.fromString(dto).getDtoClass())
-                    .map(ResponseEntity::ok);
-        }
-        return queryService.fetchByContainerAndKey(containerName, key, ObjectDtoName.fromString(dto).getDtoClass())
+        return queryService.fetchOne(containerName, key, revision, queryParams, ObjectDtoName.fromString(dto).getDtoClass())
                 .map(ResponseEntity::ok);
     }
 

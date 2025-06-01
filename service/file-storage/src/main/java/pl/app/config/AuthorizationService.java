@@ -2,6 +2,7 @@ package pl.app.config;
 
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtClaimAccessor;
 import pl.app.common.shared.exception.AuthorizationException;
 import pl.app.container.model.Container;
 import pl.app.container.service.dto.ContainerDto;
@@ -10,6 +11,13 @@ import reactor.core.publisher.Mono;
 import java.util.Objects;
 
 public class AuthorizationService {
+    public static Mono<String> subjectId() {
+        return ReactiveSecurityContextHolder.getContext()
+                .switchIfEmpty(Mono.error(AuthorizationException::new))
+                .map(ctx -> ctx.getAuthentication().getPrincipal())
+                .cast(Jwt.class)
+                .map(JwtClaimAccessor::getSubject);
+    }
 
     public static Mono<Void> verifySubjectIsOwner(String subjectId) {
         return ReactiveSecurityContextHolder.getContext()
@@ -41,17 +49,6 @@ public class AuthorizationService {
         }
         return verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName())
                 .onErrorResume(e -> verifySubjectIsOwner(subjectId));
-    }
-
-    public static Mono<Void> verifySubjectHasAuthorityToReadObjectsInContainer(ContainerDto container) {
-        if (Container.ContainerType.PUBLIC.equals(container.getType())) {
-            return Mono.empty();
-        }
-        if (Container.ContainerType.PROTECTED.equals(container.getType())) {
-            return verifySubjectHasAuthority(FSSScopes.OBJECT_READ.getScopeName())
-                    .onErrorResume(e -> verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName()));
-        }
-        return verifySubjectHasAuthority(FSSScopes.OBJECT_MANAGE.getScopeName());
     }
 
     public static Mono<Void> verifySubjectHasAuthorityToReadObjectInContainer(ContainerDto container, String subjectId) {

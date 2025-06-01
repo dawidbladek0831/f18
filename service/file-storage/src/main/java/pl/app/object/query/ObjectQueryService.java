@@ -9,11 +9,9 @@ import java.util.Set;
 public interface ObjectQueryService {
     <T> Flux<T> fetchAll(Class<T> dtoClass);
 
-    <T> Flux<T> fetchByContainer(String containerName, Class<T> dtoClass);
-    <T> Flux<T> fetchByContainer(String containerName, Class<T> dtoClass, Map<String, String> filters);
+    <T> Flux<T> fetchAll(String containerName, Map<String, Object> filters, Class<T> dtoClass);
 
-    <T> Mono<T> fetchByContainerAndKey(String containerName, String key, Class<T> dtoClass);
+    <T> Mono<T> fetchOne(String containerName, String key, Class<T> dtoClass);
 
-    <T> Mono<T> fetchByContainerAndKeyAndRevision(String containerName, String key, Set<Integer> revision, Class<T> dtoClass);
-
+    <T> Mono<T> fetchOne(String containerName, String key, Set<Integer> revision, Map<String, Object> filters, Class<T> dtoClass);
 }

@@ -1,7 +1,7 @@
 services:
   file-storage-service:
     restart: unless-stopped
-    image: ghcr.io/grubeb/file-storage-service:latest
+    image: ghcr.io/dawidbladek0831/file-storage-service:0.3.1
     ports:
       - '9022:8080'
     extra_hosts:

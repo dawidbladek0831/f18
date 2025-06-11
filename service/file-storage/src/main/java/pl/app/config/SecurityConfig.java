@@ -17,6 +17,8 @@ public class SecurityConfig {
         http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
+                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers/{name}").hasAuthority(FSSScopes.CONTAINER_READ.getScopeName())
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers").hasAuthority(FSSScopes.CONTAINER_READ.getScopeName())
                         .pathMatchers(HttpMethod.POST, "/api/v1/containers").hasAuthority(FSSScopes.CONTAINER_WRITE.getScopeName())

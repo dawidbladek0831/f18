@@ -17,6 +17,8 @@ public class SecurityConfig {
         http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
+                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers/{name}").hasAuthority(FSSScopes.CONTAINER_READ.getScopeName())
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers").hasAuthority(FSSScopes.CONTAINER_READ.getScopeName())
                         .pathMatchers(HttpMethod.POST, "/api/v1/containers").hasAuthority(FSSScopes.CONTAINER_WRITE.getScopeName())
@@ -24,13 +26,13 @@ public class SecurityConfig {
                         .pathMatchers(HttpMethod.DELETE, "/api/v1/containers/{name}").hasAuthority(FSSScopes.CONTAINER_WRITE.getScopeName())
 
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/objects/**").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/objects").hasAnyAuthority(FSSScopes.OBJECT_READ.getScopeName(), FSSScopes.OBJECT_MANAGE.getScopeName())
+                        .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/objects").permitAll()
                         .pathMatchers(HttpMethod.POST, "/api/v1/containers/{containerName}/objects").hasAnyAuthority(FSSScopes.OBJECT_WRITE.getScopeName(), FSSScopes.OBJECT_MANAGE.getScopeName())
                         .pathMatchers(HttpMethod.PUT, "/api/v1/containers/{containerName}/objects/**").hasAnyAuthority(FSSScopes.OBJECT_WRITE.getScopeName(), FSSScopes.OBJECT_MANAGE.getScopeName())
                         .pathMatchers(HttpMethod.DELETE, "/api/v1/containers/{containerName}/objects/**").hasAnyAuthority(FSSScopes.OBJECT_WRITE.getScopeName(), FSSScopes.OBJECT_MANAGE.getScopeName())
 
                         .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/files/**").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/files").hasAnyAuthority(FSSScopes.OBJECT_READ.getScopeName(), FSSScopes.OBJECT_MANAGE.getScopeName())
+                        .pathMatchers(HttpMethod.GET, "/api/v1/containers/{containerName}/files").permitAll()
                         .anyExchange().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(c -> c
                         .jwtAuthenticationConverter(new ReactiveJwtAuthenticationConverterAdapter(JwtAuthenticationConverter))));
